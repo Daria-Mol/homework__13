@@ -1,0 +1,649 @@
+@import "null.css";
+/* ============================================================================================================================= */
+/*====== Подключаемые Шрифты======= */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+/*====================================== */
+
+.wrapper {
+	overflow: hidden;
+	min-height: 100%;
+	position: relative;
+}
+[class*="__container"]{
+	max-width: 1230px;
+	margin: 0px auto;
+}
+
+.header__container {
+	font-size: 30px;
+	padding: 10px 0px;
+	text-align: center;
+	color: rgb(21, 6, 29);
+	font-weight: 700;
+	letter-spacing: 2px;
+	background: url("../img/fon.jpg") 0 0 repeat;
+	animation: header-move 5s ease  infinite alternate;
+
+}
+
+@keyframes header-move{
+	0%{
+		opacity: 0;
+		transform: rotate(0deg);
+
+	}
+	100%{
+		opacity: 1;
+		transform: rotate(360deg);
+		background: url("../img/2.jpg") 0 0 repeat;
+	}
+}
+
+/* ===============    MAIN    =========================================== */
+.main {
+	overflow: hidden;
+}
+.main__container {
+	width: 1200px;
+	height: 700px;
+	background:url("../img/sky.png") 0 0/cover;
+	position: relative;
+	overflow: hidden;
+}
+.image{
+	position: relative;
+	z-index: 2;
+	width: 100%;
+	height: 700px;
+}
+/* ==================   clouds   ================================= */
+
+.clouds {
+	width: 1200px;
+	position: absolute;
+	height: 300px;
+	top: 0;
+	left:0;
+	/* background-color: rgb(145, 9, 9); */
+}
+.clouds__box-rope{
+	width: 1200px;
+	position: relative;
+	height: 300px;
+	top: 0;
+	left:0;
+	/* background-color: rgb(202, 153, 153); */
+}
+.clouds__cloud {
+	position: absolute;
+	top: 0;
+	left:20px;
+	width: 100px;
+	height: 50px;
+	transform-origin: top;
+}
+.clouds__cloud::before {
+	content: "";
+	position: absolute;
+	background-color: rgb(229, 229, 248);
+	left: 50%;
+	transform: translate(-50%, 0px);
+}
+.clouds__cloud::after {
+	content: "";
+	width: 100px;
+	height: 75px;
+	background: url("../img/oblako.png") 0 0/ 100% no-repeat;
+	position: absolute;
+	transform: translate(-50%,0px);
+}
+/* ======cloud    nth-child 1 ======*/
+.clouds__cloud:nth-child(1) {
+	left: 20px;
+	animation:clouds-on-rope 3s infinite ease-in-out alternate;
+}
+.clouds__cloud:nth-child(1):before{
+	top: 0px;
+	left: 50px;
+	width: 4px;
+	height: 90px;
+}
+.clouds__cloud:nth-child(1):after{
+	width: 100px;
+	height: 75px;
+	top: 80px;
+	left: 45px;
+}
+/* ======cloud    nth-child 2 ======*/
+
+.clouds__cloud:nth-child(2) {
+	left: 100px;
+	height: 150px;
+	animation: clouds-on-rope 2.5s infinite ease-in-out alternate;
+}
+.clouds__cloud:nth-child(2):before{
+	width: 4px;
+	height: 135px;
+}
+.clouds__cloud:nth-child(2):after{
+	width: 100px;
+	height: 75px;
+	top: 130px;
+	left: 45px;
+}
+/* ======cloud    nth-child 3 ======*/
+.clouds__cloud:nth-child(3) {
+	left: 170px;
+	animation: clouds-on-rope 2.7s infinite ease-in-out alternate ;
+}
+.clouds__cloud:nth-child(3):before{
+	top: 0px;
+	left: 50px;
+	width: 4px;
+	height: 40px;
+}
+.clouds__cloud:nth-child(3):after{
+	width: 100px;
+	height: 75px;
+	top: 45px;
+	left: 45px;
+}
+/* ==============  cloud    nth-child 4  =================== */
+
+.clouds__cloud:nth-child(4) {
+	left: -100px;
+	animation: clouds-fly 30s  linear infinite alternate;
+}
+
+.clouds__cloud:nth-child(5) {
+	top: 20px;
+	left: -50px;
+	animation: clouds-fly 32s  linear infinite alternate 0.1s;
+}
+
+@keyframes clouds-on-rope {
+	0% {
+		transform: rotate(10deg);
+	}
+	100% {
+		transform: rotate(-10deg);
+	}
+}
+@keyframes clouds-fly {
+	0% {
+		transform: translate3d(0px, 0px,0);
+	}
+	33.333%{
+		transform: translate3d(300px, 40px,0);
+	 }
+	66.666%{
+		transform: translate3d(700px, 30px,0);
+	} 
+	100% {
+		transform: translate3d(1300px, 55px,0);
+	}
+}
+
+
+
+
+
+
+/* ============   mill   ============================= */
+.mill {
+	position:absolute;
+	width:180px;
+	height:200px;
+	left:1050px;
+	top:230px;
+}
+.mill__box {
+	/* background-color: rgb(150, 13, 13); */
+	position:relative;
+	width:180px;
+	height:200px;
+}
+.mill__base {
+	position:absolute;
+	width:60px;
+	height:100px;
+	left:60px;
+	top:80px;
+	background-color: rgb(32, 8, 245);
+	border-radius: 30px 30px 0 0 ;
+}
+.mill__blades {
+	position:absolute;
+	width:140px;
+	height:140px;
+	left:18px;
+	top:30px;
+	transform-origin: 72px 75px;
+	animation: rotate-blades 10s linear infinite ;
+	/* background-color: rgb(228, 18, 210); */
+}
+.mill__blade {
+	width: 35px;
+	height: 70px;
+	z-index: 6;
+
+}
+.mill__blade:before {
+	content: '';
+	width: 5px;
+	height: 70px;
+	background-color: rgb(250, 102, 3);
+	display: inline-block;
+	margin-right: 3px;
+}
+.mill__blade:after {
+	content: '';
+	width: 25px;
+	height: 45px;
+	background-color: rgb(255, 251, 5);
+	display:inline-block;
+
+}
+.mill__centre {
+	position:absolute;
+	width:20px;
+	height:20px;
+	left:62px;
+	top:65px;
+	background-color: rgb(250, 246, 3);
+	border-radius: 50%;
+	z-index: 7;
+}
+.mill__blade:nth-child(1){
+	position:absolute;
+	left: 69px;
+	top: 70px;
+	} 
+.mill__blade:nth-child(2){
+	position:absolute;
+	left: 75px;
+	top: 72px;
+	transform-origin: top left;
+	transform: rotate(90deg);
+} 
+.mill__blade:nth-child(3){
+	position:absolute;
+	left: 75px;
+	top: 75px;
+	transform-origin: top left;
+	transform: rotate(180deg);
+} 
+.mill__blade:nth-child(4){
+	position:absolute;
+	left: 70px;
+	top: 78px;
+	transform-origin: top left;
+	transform: rotate(-90deg);
+} 
+
+@keyframes rotate-blades{
+	0%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+}
+
+/* ==========  flowers ==================== */
+
+.flowers {
+
+}
+
+.flower {
+	width: 70px;
+	height: 70px;
+	z-index: 4;
+}
+.flower__leafs {
+}
+.flower--yellow .flower__leaf{
+	background-color: rgb(255, 230, 1);
+}
+.flower--blue .flower__leaf{
+	background-color: rgb(1, 26, 255);
+}
+.flower--purple .flower__leaf{
+	background-color: rgb(175, 1, 255);
+}
+.flower__circle {
+	position: absolute;
+	top: 25px;
+	left: 25px;
+	width: 20px;
+	height: 20px;
+	border-radius:50% ;
+	background-color: rgb(251, 255, 1);
+	
+}
+.flower--yellow .flower__circle {
+	background-color: rgb(255, 1, 1);
+}
+.flower__leaf {
+	border-radius:35% 65% 65% 35% / 54% 51% 49% 46% ;
+	background-color: rgb(255, 1, 1);
+	border:3px dotted rgb(253, 216, 3);
+}
+.flower__leaf:nth-child(1){
+	position: absolute;
+	top: 25px;
+	left: 25px;
+	width: 40px;
+	height: 20px;
+}
+
+.flower__leaf:nth-child(2){
+	position: absolute;
+	top: 25px;
+	left: 25px;
+	width: 40px;
+	height: 20px;
+	transform-origin: 10px 10px;
+	transform: rotate(-72deg);
+}
+.flower__leaf:nth-child(3){
+	position: absolute;
+	top: 25px;
+	left: 25px;
+	width: 40px;
+	height: 20px;
+	transform-origin: 10px 10px;
+	transform: rotate(-144deg);
+}
+.flower__leaf:nth-child(4){
+	position: absolute;
+	top: 25px;
+	left: 25px;
+	width: 40px;
+	height: 20px;
+	transform-origin: 10px 10px;
+	transform: rotate(144deg);
+}
+.flower__leaf:nth-child(5){
+	position: absolute;
+	top: 25px;
+	left: 25px;
+	width: 40px;
+	height: 20px;
+	transform-origin: 10px 10px;
+	transform: rotate(72deg);
+}
+.flowers__flower:nth-child(1) {
+	position: absolute;
+	top: 560px;
+	left: 800px;
+	animation: flowers 3s 2 steps(10, start) reverse ;
+}
+
+.flowers__flower:nth-child(2) {
+	position: absolute;
+	top: 540px;
+	left: 880px;
+	transform: scale(0.2);
+}
+.flowers__flower:nth-child(2):hover{
+	transform: rotate(40deg);
+	transition: all 0.3s linear 0s;
+} 
+.flowers__flower:nth-child(3) {
+	position: absolute;
+	top: 500px;
+	left: 1100px;
+	transform: scale(0.5);
+}
+.flowers__flower:nth-child(3):hover{
+	transform: rotate(20deg);
+	transition: all 0.3s ease-in 0.7s;
+} 
+.flowers__flower:nth-child(4) {
+	position: absolute;
+	top: 480px;
+	left: 1000px;
+	transform: scale(0.7);
+
+}
+.flowers__flower:nth-child(4):hover{
+	transform: rotate(-50deg);
+	transition: all 1s ease-out 0s;
+} 
+.flowers__flower:nth-child(5) {
+	position: absolute;
+	top: 470px;
+	left: 1070px;
+	transform: scale(0.25);
+
+}
+.flowers__flower:nth-child(5):hover{
+	transition: all 0.5s ease 0s;
+	transform: rotate(-150deg);
+
+} 
+.flowers__flower:nth-child(6) {
+	position: absolute;
+	top: 520px;
+	left: 980px;
+	transform: scale(0.25);
+
+}
+.flowers__flower:nth-child(6):hover{
+	transition: all 1s ease 0s;
+	transform: rotate(-360deg);
+
+} 
+.flowers__flower:nth-child(7) {
+	position: absolute;
+	top: 505px;
+	left: 1040px;
+	transform: scale(0.7);
+	animation: flowers 5s ease-in-out 0.5s 2 alternate;
+}
+
+.flowers__flower:nth-child(8) {
+	position: absolute;
+	top: 530px;
+	left: 840px;
+	transform: scale(0.5);
+	/* animation: name duration timing-function delay iteration-count direction fill-mode; */
+	animation: flowers 2s 6  ease-in alternate-reverse;
+}
+
+@keyframes flowers {
+	0% {
+		transform: scale(0.7) rotate(180deg);
+	}
+	
+	100% {
+		transform:scale(0.5) rotate(0deg);
+	}
+}
+/* ==============  apples   ================== */
+
+.apples {
+}
+.apples__apple {
+}
+.apple {
+	z-index: 6;
+}
+.apple__body{
+	width: 40px;
+	height: 40px;
+	z-index: 6;
+}
+.apple__twig {
+	position: absolute;
+	top: 0px;
+	left:19px;
+	width: 3px;
+	height: 30px;
+	background-color: rgb(110, 41, 1);
+}
+
+.apple__left-part {
+	position: absolute;
+	top: 10px;
+	left:0;
+	width: 20px;
+	height: 30px;
+	border-radius:59% 41% 0% 100% / 44% 10% 90% 56%  ;
+	background: linear-gradient(328deg, rgba(246,242,3,1) 0%, rgba(250,110,17,1) 49%, rgba(251,3,21,1) 100%);
+}
+.apple__right-part {
+	position: absolute;
+	top: 10px;
+	left:20PX;
+	width: 20px;
+	height: 30px;
+	border-radius:37% 63% 100% 0% / 10% 47% 53% 90% ;
+	background: linear-gradient(59deg, rgba(246,242,3,1) 0%, rgba(250,110,17,1) 49%, rgba(251,3,21,1) 100%);
+}
+
+.apples__apple:nth-child(1) {
+	position: absolute;
+	top: 300px;
+	left:430px;
+}
+.apples__apple:nth-child(1):hover .apple__body{
+	transform:translate(-100%,0) scale(0.7) rotate(-20deg);
+	transition: all 0.3s ease 0s;
+}
+.apples__apple:nth-child(2) {
+	position: absolute;
+	top: 250px;
+	left:300px;
+	background: rgb(10, 90, 3);
+	overflow: hidden;
+}
+
+.apples__apple:nth-child(2) .apple__body{
+	opacity: 0;
+}
+.apples__apple:nth-child(2):hover .apple__body{
+	opacity: 1;
+	transition: all 3s ease 1s ;
+}
+.apples__apple:nth-child(2):hover{
+	background: none;
+	transition: all 0s ease 4s;
+}
+.apples__apple:nth-child(3) {
+	position: absolute;
+	top: 350px;
+	left:200px;
+}
+.apples__apple:nth-child(3):hover .apple__body{
+	transform: scale(0.6) skew(-20deg,30deg);
+	transition: all 0.3s ease 0s;
+}
+.apples__apple:nth-child(4) {
+	position: absolute;
+	top: 290px;
+	left:230px;
+	perspective: 40px;
+	perspective-origin: center;
+}
+.apples__apple:nth-child(4):hover .apple__body{
+	transform: rotateX(50deg);
+	transition: all 0.3s ease 0s;
+}
+.apples__apple:nth-child(5) {
+	position: absolute;
+	top: 210px;
+	left:270px;
+	perspective: 60px;
+	perspective-origin: center;
+}
+.apples__apple:nth-child(5):hover .apple__body{
+	transform: translate3d(10px,-10px,-20px);
+	transition: all 0.3s ease 0s;
+}
+.apples__apple:nth-child(6) {
+	position: absolute;
+	top: 330px;
+	left:300px;
+	perspective: 60px;
+	perspective-origin: center;
+}
+.apples__apple:nth-child(6):hover .apple__body{
+	transform: scale3d(0.5,1.2,2);
+	transition: all 0.3s ease 0s;
+}
+.apples__apple:nth-child(7) {
+	position: absolute;
+	top: 220px;
+	left:360px;
+	perspective: 60px;
+	perspective-origin: center;
+}
+.apples__apple:nth-child(7):hover .apple__body{
+	transform: rotate3d(2,5,5,-50deg);
+	transition: all 0.3s ease 0s;
+}
+.apples__apple:nth-child(8) {
+	position: absolute;
+	top: 280px;
+	left:370px;
+	perspective: 60px;
+	perspective-origin: center;
+}
+.apples__apple:nth-child(8):hover .apple__body{
+	transform: rotate3d(5,5,5,20deg);
+	transition: all 0.3s ease 0s;
+}
+/* =========   ship  ======================== */
+.ships__ship{
+	z-index: 7;
+}
+
+.ship__body {
+	perspective: 100px;
+	transform-style: preserve-3d;
+	z-index: 7;
+}
+.ship__image{
+	background: url("../img/ship.png") 0 0/cover;
+}
+.ships__ship:nth-child(1) {
+	position: absolute;
+	top: 550px;
+	left: 20px;
+	width: 120px;
+	height: 90px;
+	animation: ships 20s linear 3 0s;
+}
+.ships__ship:nth-child(1):hover{
+	animation-play-state: paused;
+}
+.ships__ship:nth-child(1) .ship__image {
+	width: 120px;
+	height: 90px;
+}
+@keyframes ships{
+	0%{
+		top: 550px;
+		left: -120px;
+	}
+	100%{
+		top: 700px;
+		left: 550px;
+	}
+}
+
+
+
+
+/*================  FOOTER   ============================================*/
+.footer {
+	text-align: right;
+	font-family: Parisienne;
+	font-weight: 700;
+	font-size: 30px;
+	text-shadow: 3px 3px 5px rgb(148, 4, 243);
+}
